@@ -1,7 +1,12 @@
 package soqqa.uz.fiverr_demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import lombok.*;
+
+import java.util.List;
 
 @Entity(name = "fiverr")
 @NoArgsConstructor
@@ -10,8 +15,10 @@ import lombok.*;
 @Setter
 @Builder
 public class Fiverr extends BaseEntity  {
-    private Card buyerCard;
-    private Card sellerCard;
+    private Double fiverrCard;
 
-    private Payment payment;
+    @JsonIgnore
+    @OneToMany(mappedBy = "fiverr", cascade = CascadeType.ALL)
+    private List<Payment> payments;
 }
+
