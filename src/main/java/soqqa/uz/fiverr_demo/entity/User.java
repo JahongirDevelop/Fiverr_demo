@@ -1,13 +1,21 @@
 package soqqa.uz.fiverr_demo.entity;
 
-import java.time.LocalDateTime;
+import jakarta.persistence.Entity;
+import lombok.*;
 
-public class User {
-    private String full_name;
+import java.time.LocalDateTime;
+@Entity(name = "users")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Builder
+public class User extends BaseEntity {
     private String username;
+    private String displayName;
     private String description; // About me;;
     private String skills;
-    private Double salary;
+    private String education;
     private Gigs gigs;
     private LocalDateTime birth;
     private String know_language;
