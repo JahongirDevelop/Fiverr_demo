@@ -1,25 +1,21 @@
-package soqqa.uz.fiverr_demo.entity;
+package soqqa.uz.fiverr_demo.dto.request;
 
-import jakarta.persistence.*;
 import lombok.*;
+import soqqa.uz.fiverr_demo.entity.User;
 import soqqa.uz.fiverr_demo.entity.enums.Category;
 
-@Entity(name = "gigs")
-@NoArgsConstructor
-@AllArgsConstructor
+import java.util.UUID;
+
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
-public class Gigs extends BaseEntity {
+@ToString
+public class GigsCreateRequest {
+    private UUID user;
     private String gigTitle;
-
-    @Enumerated(EnumType.STRING)
     private Category category;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    User user;
-
     private String full_name;
     private String description;
     private Double price;
