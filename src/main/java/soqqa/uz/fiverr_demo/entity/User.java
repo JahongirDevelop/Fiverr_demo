@@ -36,9 +36,9 @@ public class User extends BaseEntity implements UserDetails {
     private LocalDateTime birth;
     private String know_language;
     private String location;
-    private String balance;
 
-    @OneToOne
+
+    @OneToOne(mappedBy = "owner", cascade = CascadeType.ALL)
     private Card card;
 
     @Enumerated(EnumType.STRING)

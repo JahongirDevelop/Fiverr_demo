@@ -32,8 +32,6 @@ public class Payment extends BaseEntity {
     @JoinColumn(name = "seller_id")
     private Card sellerCard; // Card of the seller receiving payment
 
-    @ManyToOne
-    @JoinColumn(name = "fiverr_id")
-    private Fiverr fiverr;
+
 
 }

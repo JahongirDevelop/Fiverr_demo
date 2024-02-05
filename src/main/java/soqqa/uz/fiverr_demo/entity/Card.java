@@ -15,6 +15,7 @@ public class Card extends BaseEntity {
     private String cardNumber;
     private String cardDate;
     private String securityCode;
+    private Double balance;
     @OneToOne
     private User owner;
 

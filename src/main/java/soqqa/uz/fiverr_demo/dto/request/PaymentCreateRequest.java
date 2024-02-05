@@ -20,6 +20,6 @@ public class PaymentCreateRequest {
     private Currency currency;
     private LocalDateTime timestamp;
     private UUID gigsId;
-    private Card buyerCard;
-    private Card sellerCard;
+    private String buyerCard;
+    private String sellerCard;
 }

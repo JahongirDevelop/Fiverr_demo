@@ -8,6 +8,10 @@ import soqqa.uz.fiverr_demo.entity.User;
 import java.util.UUID;
 @Repository
 public interface CardRepository extends JpaRepository<Card, UUID> {
+    boolean existsByOwner(User owner);
 
-//    boolean exitsByOwner(User byUser);
+
+    boolean existsByCardNumber(String buyerCard);
+
+    Card findByCardNumber(String buyerCard);
 }
