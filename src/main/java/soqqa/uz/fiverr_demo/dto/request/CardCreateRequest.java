@@ -2,6 +2,8 @@ package soqqa.uz.fiverr_demo.dto.request;
 
 import lombok.*;
 
+import java.util.UUID;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -15,4 +17,5 @@ public class CardCreateRequest {
     private String cardNumber;
     private String cardDate;
     private String securityCode;
+    private UUID ownerId;
 }

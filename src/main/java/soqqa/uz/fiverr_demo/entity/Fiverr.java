@@ -17,8 +17,5 @@ import java.util.List;
 public class Fiverr extends BaseEntity  {
     private Double fiverrCard;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "fiverr", cascade = CascadeType.ALL)
-    private List<Payment> payments;
 }
 

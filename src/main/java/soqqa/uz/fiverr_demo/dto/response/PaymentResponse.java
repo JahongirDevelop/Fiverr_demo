@@ -8,6 +8,7 @@ import soqqa.uz.fiverr_demo.entity.Gigs;
 import soqqa.uz.fiverr_demo.entity.enums.Currency;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 
 @Getter
@@ -21,7 +22,8 @@ public class PaymentResponse {
     private String paymentMethod;
     private Currency currency;
     private LocalDateTime timestamp;
-    private Gigs gigs;
-    private Card buyerCard;
-    private Card sellerCard;
+    private UUID gigsId;
+    private String buyerCard;
+    private String sellerCard;
+
 }
