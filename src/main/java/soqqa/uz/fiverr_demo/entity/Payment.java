@@ -18,14 +18,14 @@ public class Payment extends BaseEntity {
     private String currency;
     private LocalDateTime timestamp;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "buyer_id")
-    private Card buyerCard; // jonatuvchi
-    @OneToOne
-    @JoinColumn(name = "seller_id") // oluvchi
-    private Card sellerCard;
+    private Card buyerCard; // Card used by the buyer for payment
 
-    // In the Payment entity
+    @ManyToOne
+    @JoinColumn(name = "seller_id")
+    private Card sellerCard; // Card of the seller receiving payment
+
     @ManyToOne
     @JoinColumn(name = "fiverr_id")
     private Fiverr fiverr;
