@@ -7,13 +7,17 @@ import soqqa.uz.fiverr_demo.dto.request.GigsCreateRequest;
 import soqqa.uz.fiverr_demo.dto.response.GigsResponse;
 import soqqa.uz.fiverr_demo.entity.Gigs;
 import soqqa.uz.fiverr_demo.entity.User;
+import soqqa.uz.fiverr_demo.entity.enums.UserRole;
 import soqqa.uz.fiverr_demo.exception.DataNotFoundException;
 import soqqa.uz.fiverr_demo.repository.GigsRepository;
 import soqqa.uz.fiverr_demo.repository.UserRepository;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import static soqqa.uz.fiverr_demo.entity.enums.UserRole.SELLING;
 
 @Service
 @RequiredArgsConstructor
@@ -33,8 +37,10 @@ public class GigsService {
         byId.get().setGigs(gig);
 
         User save = modelMapper.map(byId, User.class);
+        save.setUserRole(SELLING);
         userRepository.save(save);
         gigs.setUser(save);
+        gigs.setCreatedDate(LocalDateTime.now());
         gigsRepository.save(gigs);
         return modelMapper.map(createRequest, GigsResponse.class);
     }
