@@ -1,9 +1,7 @@
 package soqqa.uz.fiverr_demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.OneToOne;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -13,6 +11,7 @@ import soqqa.uz.fiverr_demo.entity.enums.UserRole;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity(name = "users")
@@ -29,8 +28,10 @@ public class User extends BaseEntity implements UserDetails {
     private String description; // About me;;
     private String skills;
     private String education;
-    @OneToOne
-    private Gigs gigs;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Gigs> gigs;
 
     private LocalDateTime birth;
     private String know_language;
