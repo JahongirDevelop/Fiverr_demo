@@ -19,6 +19,10 @@ public class Payment extends BaseEntity {
     private LocalDateTime timestamp;
 
     @ManyToOne
+    @JoinColumn(name = "gigs_id")
+    private Gigs gigs;
+
+    @ManyToOne
     @JoinColumn(name = "buyer_id")
     private Card buyerCard; // Card used by the buyer for payment
 

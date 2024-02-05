@@ -24,4 +24,5 @@ public class Gigs extends BaseEntity {
     private String description;
     private Double price;
     private String programmingLanguage;
+    private Integer paymentCount;
 }

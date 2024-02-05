@@ -18,8 +18,4 @@ public class Card extends BaseEntity {
     @OneToOne
     private User user;
 
-//    @ManyToMany
-////    @JoinColumn(name = "payment_id") // Assuming "payment_id" is the foreign key column in the Card table
-//    private Payment payment;
-
 }
