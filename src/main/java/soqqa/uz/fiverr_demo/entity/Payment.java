@@ -3,6 +3,7 @@ package soqqa.uz.fiverr_demo.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+import soqqa.uz.fiverr_demo.entity.enums.Currency;
 
 import java.time.LocalDateTime;
 
@@ -15,7 +16,8 @@ import java.time.LocalDateTime;
 public class Payment extends BaseEntity {
     private Double amount;
     private String paymentMethod;
-    private String currency;
+    @Enumerated(EnumType.STRING)
+    private Currency currency;
     private LocalDateTime timestamp;
 
     @ManyToOne
