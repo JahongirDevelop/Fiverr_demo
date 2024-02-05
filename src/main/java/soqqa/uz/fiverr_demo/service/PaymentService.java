@@ -63,10 +63,10 @@ public class PaymentService {
         sellerCard.setBalance(sellerCard.getBalance() + fiverr);
         cardRepository.save(sellerCard);
 
-        card.setBalance(card.getBalance() - fiverr);
+        card.setBalance(card.getBalance() - payment.getAmount());
         cardRepository.save(card);
 
-        fiverrCard.get().setBalance(fiverr);
+        fiverrCard.get().setBalance(fiverrCard.get().getBalance() + fiverr);
         cardRepository.save(modelMapper.map(fiverrCard, Card.class));
 
         return modelMapper.map(createRequest, PaymentResponse.class);
