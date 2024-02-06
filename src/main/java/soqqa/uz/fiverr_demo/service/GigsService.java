@@ -52,7 +52,6 @@ public class GigsService {
         return modelMapper.map(createRequest, GigsResponse.class);
     }
 
-
     public String delete(UUID gigsId){
         Gigs gigs = getGigs(gigsId);
         gigsRepository.deleteById(gigs.getId());
@@ -63,12 +62,6 @@ public class GigsService {
         return gigsRepository.findById(gigsId)
                 .orElseThrow(() -> new DataNotFoundException("Gigs not found with this id: " + gigsId));
     }
-
-//    public List<GigsResponse> getAllGigsByCategory(int page, int size, Category category) {
-//        Pageable pageable = PageRequest.of(page, size);
-//        List<Gigs> gigs = gigsRepository.findAllByCategory(pageable,category).getContent();
-//        return modelMapper.map(gigs, new TypeToken<List<GigsResponse>>(){}.getType());
-//    }
 
     public List<GigsResponse> getAllGigsByCategory(int page, int size, Category category) {
         Pageable pageable = PageRequest.of(page, size);
