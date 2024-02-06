@@ -4,6 +4,7 @@ import org.springframework.stereotype.Repository;
 import soqqa.uz.fiverr_demo.entity.Gigs;
 import soqqa.uz.fiverr_demo.entity.User;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -15,4 +16,6 @@ public interface UserRepository extends JpaRepository<User, UUID> {
 
 
     User findByGigs(Optional<Gigs> gigs);
+
+    List<User> searchAllByGigsGigTitleContainingIgnoreCase(String keyWord);
 }
