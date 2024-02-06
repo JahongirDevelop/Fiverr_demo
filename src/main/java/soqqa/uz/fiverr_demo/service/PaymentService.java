@@ -71,4 +71,17 @@ public class PaymentService {
 
         return modelMapper.map(createRequest, PaymentResponse.class);
         }
+
+
+
+    public String delete(UUID paymentId){
+        Payment payment = getPayment(paymentId);
+        paymentRepository.deleteById(payment.getId());
+        return "Successfully deleted: ";
+    }
+
+    public Payment getPayment(UUID paymentId){
+        return paymentRepository.findById(paymentId)
+                .orElseThrow(() -> new DataNotFoundException("Payment not found with this id: " + paymentId));
+    }
 }

@@ -13,6 +13,7 @@ import soqqa.uz.fiverr_demo.repository.CardRepository;
 import soqqa.uz.fiverr_demo.repository.UserRepository;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -54,4 +55,14 @@ public class CardService {
         return modelMapper.map(card, CardResponse.class);
     }
 
+    public String delete(UUID cardId){
+        Card card = getCard(cardId);
+        cardRepository.deleteById(card.getId());
+        return "Successfully deleted: " + card.getCardNumber();
+    }
+
+    public Card getCard(UUID cardId){
+        return cardRepository.findById(cardId)
+                .orElseThrow(() -> new DataNotFoundException("Card not found with this id: " + cardId));
+    }
 }

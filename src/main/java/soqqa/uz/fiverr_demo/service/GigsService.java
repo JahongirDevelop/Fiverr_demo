@@ -5,6 +5,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import soqqa.uz.fiverr_demo.dto.request.GigsCreateRequest;
 import soqqa.uz.fiverr_demo.dto.response.GigsResponse;
+import soqqa.uz.fiverr_demo.entity.Card;
 import soqqa.uz.fiverr_demo.entity.Gigs;
 import soqqa.uz.fiverr_demo.entity.User;
 import soqqa.uz.fiverr_demo.entity.enums.UserRole;
@@ -16,6 +17,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import static soqqa.uz.fiverr_demo.entity.enums.UserRole.SELLING;
 
@@ -43,5 +45,17 @@ public class GigsService {
         gigs.setCreatedDate(LocalDateTime.now());
         gigsRepository.save(gigs);
         return modelMapper.map(createRequest, GigsResponse.class);
+    }
+
+
+    public String delete(UUID gigsId){
+        Gigs gigs = getGigs(gigsId);
+        gigsRepository.deleteById(gigs.getId());
+        return "Successfully deleted: " + gigs.getGigTitle();
+    }
+
+    public Gigs getGigs(UUID gigsId){
+        return gigsRepository.findById(gigsId)
+                .orElseThrow(() -> new DataNotFoundException("Gigs not found with this id: " + gigsId));
     }
 }
