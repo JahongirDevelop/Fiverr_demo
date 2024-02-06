@@ -14,7 +14,6 @@ import soqqa.uz.fiverr_demo.repository.CardRepository;
 import soqqa.uz.fiverr_demo.repository.GigsRepository;
 import soqqa.uz.fiverr_demo.repository.PaymentRepository;
 import soqqa.uz.fiverr_demo.repository.UserRepository;
-
 import java.util.Optional;
 import java.util.UUID;
 
@@ -71,7 +70,6 @@ public class PaymentService {
 
         return modelMapper.map(createRequest, PaymentResponse.class);
         }
-
 
 
     public String delete(UUID paymentId){

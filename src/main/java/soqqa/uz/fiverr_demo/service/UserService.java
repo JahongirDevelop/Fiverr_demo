@@ -18,7 +18,6 @@ import java.security.Principal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -102,4 +101,10 @@ public class UserService {
         return modelMapper.map(userEntity, UserResponse.class);
     }
 
+    public List<UserResponse> searchByGigs(String keyWord) {
+        List<User> userEntities = userRepository.searchAllByGigsGigTitleContainingIgnoreCase(keyWord);
+        return userEntities.stream()
+                .map(userEntity -> modelMapper.map(userEntity, UserResponse.class))
+                .collect(Collectors.toList());
+    }
 }
