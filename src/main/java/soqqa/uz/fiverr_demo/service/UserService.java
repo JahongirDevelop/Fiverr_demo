@@ -8,6 +8,7 @@ import soqqa.uz.fiverr_demo.config.jwt.AuthDto;
 import soqqa.uz.fiverr_demo.config.jwt.JwtResponse;
 import soqqa.uz.fiverr_demo.config.jwt.JwtService;
 import soqqa.uz.fiverr_demo.dto.request.UserCreateRequest;
+import soqqa.uz.fiverr_demo.dto.response.GigsResponse;
 import soqqa.uz.fiverr_demo.dto.response.UserResponse;
 import soqqa.uz.fiverr_demo.entity.User;
 import soqqa.uz.fiverr_demo.entity.enums.UserRole;
