@@ -37,4 +37,9 @@ public class GigsController {
             @RequestParam Category category){
         return ResponseEntity.status(200).body(gigsService.getAllGigsByCategory(page, size, category)).getBody();
     }
+
+    @GetMapping("/get-all")
+    public List<GigsResponse> getAll(){
+        return gigsService.getAll();
+    }
 }
