@@ -15,6 +15,7 @@ import soqqa.uz.fiverr_demo.repository.GigsRepository;
 import soqqa.uz.fiverr_demo.repository.PaymentRepository;
 import soqqa.uz.fiverr_demo.repository.UserRepository;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -92,5 +93,8 @@ public class PaymentService {
             list.add(modelMapper.map(payment, PaymentResponse.class));
         }
         return list;
+    }
+    public List<Payment> findPaymentsBetween(LocalDateTime startTime, LocalDateTime endTime) {
+        return paymentRepository.findPaymentsBetween(startTime, endTime);
     }
 }

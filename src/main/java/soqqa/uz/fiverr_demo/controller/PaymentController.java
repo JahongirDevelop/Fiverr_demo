@@ -11,6 +11,7 @@ import soqqa.uz.fiverr_demo.dto.response.PaymentResponse;
 import soqqa.uz.fiverr_demo.entity.Payment;
 import soqqa.uz.fiverr_demo.service.PaymentService;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -39,6 +40,15 @@ public class PaymentController {
     @GetMapping("get-payment/{id}")
     public Payment getPaymentById(@PathVariable UUID id) {
         return paymentService.getPayment(id);
+    }
+
+    @GetMapping("/searchByTimestamp")
+    public ResponseEntity<List<Payment>> getPaymentsBetween(
+            @RequestParam("startTime") LocalDateTime startTime,
+            @RequestParam("endTime") LocalDateTime endTime) {
+
+        List<Payment> payments = paymentService.findPaymentsBetween(startTime, endTime);
+        return new ResponseEntity<>(payments, HttpStatus.OK);
     }
 
 }
