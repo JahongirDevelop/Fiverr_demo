@@ -2,6 +2,7 @@ package soqqa.uz.fiverr_demo.service;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import soqqa.uz.fiverr_demo.dto.request.CardCreateRequest;
 import soqqa.uz.fiverr_demo.dto.response.CardResponse;
@@ -12,6 +13,8 @@ import soqqa.uz.fiverr_demo.exception.DataNotFoundException;
 import soqqa.uz.fiverr_demo.repository.CardRepository;
 import soqqa.uz.fiverr_demo.repository.UserRepository;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -64,5 +67,13 @@ public class CardService {
     public Card getCard(UUID cardId){
         return cardRepository.findById(cardId)
                 .orElseThrow(() -> new DataNotFoundException("Card not found with this id: " + cardId));
+    }
+
+    public List<CardResponse> getAll() {
+        List<CardResponse> allResponse = new ArrayList<>();
+        for (Card card : cardRepository.findAll()) {
+            allResponse.add(modelMapper.map(card, CardResponse.class));
+        }
+        return allResponse;
     }
 }

@@ -85,4 +85,11 @@ public class GigsService {
         return gigsResponses;
     }
 
+    public List<GigsResponse> getAll() {
+        List<GigsResponse> gigsResponses = new ArrayList<>();
+        for (Gigs gigs : gigsRepository.findAll()) {
+            gigsResponses.add(modelMapper.map(gigs, GigsResponse.class));
+        }
+        return gigsResponses;
+    }
 }
