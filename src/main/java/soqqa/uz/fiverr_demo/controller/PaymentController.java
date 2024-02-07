@@ -8,6 +8,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import soqqa.uz.fiverr_demo.dto.request.PaymentCreateRequest;
 import soqqa.uz.fiverr_demo.dto.response.PaymentResponse;
+import soqqa.uz.fiverr_demo.entity.Payment;
 import soqqa.uz.fiverr_demo.service.PaymentService;
 
 import java.util.List;
@@ -33,4 +34,11 @@ public class PaymentController {
     public List<PaymentResponse> getAll(){
         return paymentService.getAll();
     }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("get-payment/{id}")
+    public Payment getPaymentById(@PathVariable UUID id) {
+        return paymentService.getPayment(id);
+    }
+
 }
