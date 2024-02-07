@@ -39,7 +39,7 @@ public class CardController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("get-card/{id}")
-    public Card getEducationById(@PathVariable UUID id) {
+    public Card getCardById(@PathVariable UUID id) {
         return cardService.getCard(id);
     }
 

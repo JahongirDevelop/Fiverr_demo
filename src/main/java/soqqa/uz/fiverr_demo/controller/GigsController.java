@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import soqqa.uz.fiverr_demo.dto.request.GigsCreateRequest;
 import soqqa.uz.fiverr_demo.dto.response.GigsResponse;
@@ -42,4 +43,11 @@ public class GigsController {
     public List<GigsResponse> getAll(){
         return gigsService.getAll();
     }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("get-gigs/{id}")
+    public Gigs getGigById(@PathVariable UUID id) {
+        return gigsService.getGigs(id);
+    }
+
 }
