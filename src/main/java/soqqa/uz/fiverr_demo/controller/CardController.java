@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import soqqa.uz.fiverr_demo.dto.request.CardCreateRequest;
 import soqqa.uz.fiverr_demo.dto.response.CardResponse;
@@ -28,10 +29,12 @@ public class CardController {
     public ResponseEntity<String> deleteCard(@PathVariable UUID cardId){
         return ResponseEntity.status(200).body(cardService.delete(cardId));
     }
+//    @PreAuthorize("hasRole('ADMIN')")
+//    @GetMapping("/get-all")
+//    public List<CardResponse> getAll(){
+//        return cardService.getAll();
+//    }
 
-    @GetMapping("/get-all")
-    public List<CardResponse> getAll(){
-        return cardService.getAll();
-    }
+    // Cardga getAll bo'lmasligi kerak
 
 }

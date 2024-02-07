@@ -69,11 +69,11 @@ public class CardService {
                 .orElseThrow(() -> new DataNotFoundException("Card not found with this id: " + cardId));
     }
 
-    public List<CardResponse> getAll() {
-        List<CardResponse> allResponse = new ArrayList<>();
-        for (Card card : cardRepository.findAll()) {
-            allResponse.add(modelMapper.map(card, CardResponse.class));
-        }
-        return allResponse;
-    }
+//    public List<CardResponse> getAll() {
+//        List<CardResponse> allResponse = new ArrayList<>();
+//        for (Card card : cardRepository.findAll()) {
+//            allResponse.add(modelMapper.map(card, CardResponse.class));
+//        }
+//        return allResponse;
+//    }
 }

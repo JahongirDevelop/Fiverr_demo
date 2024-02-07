@@ -7,6 +7,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import soqqa.uz.fiverr_demo.dto.request.UserCreateRequest;
 import soqqa.uz.fiverr_demo.dto.response.GigsResponse;
+import soqqa.uz.fiverr_demo.dto.response.PaymentResponse;
 import soqqa.uz.fiverr_demo.dto.response.UserResponse;
 import soqqa.uz.fiverr_demo.service.UserService;
 
@@ -41,6 +42,11 @@ public class UserController {
     @GetMapping("/search")
     public ResponseEntity<List<UserResponse>> searchByGigs(@RequestParam String keyWord) {
         return ResponseEntity.status(200).body(userService.searchByGigs(keyWord));
+    }
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/get-all")
+    public List<UserResponse> getAll(){
+        return userService.getAll();
     }
 
 }
