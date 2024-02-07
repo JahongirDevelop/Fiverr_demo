@@ -35,6 +35,6 @@ public class CardController {
 //        return cardService.getAll();
 //    }
 
-    // Cardga getAll bo'lmasligi kerak
+    // Cardga getAll bo'lmasligi kerak. Chunki userlarni shaxsiy malumoti hisoblanadi bu;
 
 }
