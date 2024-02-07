@@ -8,7 +8,6 @@ import soqqa.uz.fiverr_demo.config.jwt.AuthDto;
 import soqqa.uz.fiverr_demo.config.jwt.JwtResponse;
 import soqqa.uz.fiverr_demo.config.jwt.JwtService;
 import soqqa.uz.fiverr_demo.dto.request.UserCreateRequest;
-import soqqa.uz.fiverr_demo.dto.response.GigsResponse;
 import soqqa.uz.fiverr_demo.dto.response.UserResponse;
 import soqqa.uz.fiverr_demo.entity.User;
 import soqqa.uz.fiverr_demo.entity.enums.UserRole;
@@ -17,6 +16,7 @@ import soqqa.uz.fiverr_demo.repository.UserRepository;
 
 import java.security.Principal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -107,5 +107,13 @@ public class UserService {
         return userEntities.stream()
                 .map(userEntity -> modelMapper.map(userEntity, UserResponse.class))
                 .collect(Collectors.toList());
+    }
+
+    public List<UserResponse> getAll() {
+        List<UserResponse> arrayList = new ArrayList<>();
+        for (User user : userRepository.findAll()) {
+            arrayList.add(modelMapper.map(user, UserResponse.class));
+        }
+        return arrayList;
     }
 }

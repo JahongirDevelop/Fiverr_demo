@@ -14,6 +14,9 @@ import soqqa.uz.fiverr_demo.repository.CardRepository;
 import soqqa.uz.fiverr_demo.repository.GigsRepository;
 import soqqa.uz.fiverr_demo.repository.PaymentRepository;
 import soqqa.uz.fiverr_demo.repository.UserRepository;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -81,5 +84,13 @@ public class PaymentService {
     public Payment getPayment(UUID paymentId){
         return paymentRepository.findById(paymentId)
                 .orElseThrow(() -> new DataNotFoundException("Payment not found with this id: " + paymentId));
+    }
+
+    public List<PaymentResponse> getAll() {
+        List<PaymentResponse> list = new ArrayList<>();
+        for (Payment payment : paymentRepository.findAll()) {
+            list.add(modelMapper.map(payment, PaymentResponse.class));
+        }
+        return list;
     }
 }
