@@ -37,4 +37,11 @@ public class CardController {
 
     // Cardga getAll bo'lmasligi kerak. Chunki userlarni shaxsiy malumoti hisoblanadi bu;
 
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("get-card/{id}")
+    public Card getEducationById(@PathVariable UUID id) {
+        return cardService.getCard(id);
+    }
+
+
 }
