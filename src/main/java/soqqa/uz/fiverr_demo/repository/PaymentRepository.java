@@ -18,5 +18,7 @@ public interface PaymentRepository extends JpaRepository<Payment, UUID> {
     @Query("SELECT p FROM payment p WHERE p.timestamp BETWEEN :startTime AND :endTime")
     List<Payment> findPaymentsBetween(@Param("startTime") LocalDateTime startTime, @Param("endTime") LocalDateTime endTime);
 
+    List<Payment> findAllByTimestampBetween(LocalDateTime startTime, LocalDateTime endTime);
+
 
 }

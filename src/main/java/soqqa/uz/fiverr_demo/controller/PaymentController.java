@@ -2,6 +2,7 @@ package soqqa.uz.fiverr_demo.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -42,13 +43,13 @@ public class PaymentController {
         return paymentService.getPayment(id);
     }
 
-    @GetMapping("/searchByTimestamp")
-    public ResponseEntity<List<Payment>> getPaymentsBetween(
-            @RequestParam("startTime") LocalDateTime startTime,
-            @RequestParam("endTime") LocalDateTime endTime) {
+    @GetMapping("/searchByTimestampBetween")
+    public ResponseEntity<List<PaymentResponse>> findAllByTimestampBetween(
+            @RequestParam("startTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startTime,
+            @RequestParam("endTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endTime) {
+        List<PaymentResponse> payments = paymentService.findAllByTimestampBetween(startTime, endTime);
+        return ResponseEntity.ok(payments);
+    }   // 2024-02-05T14:08:32.436000 ushbu formatda berislishi kerak timelar
 
-        List<Payment> payments = paymentService.findPaymentsBetween(startTime, endTime);
-        return new ResponseEntity<>(payments, HttpStatus.OK);
-    }
 
 }

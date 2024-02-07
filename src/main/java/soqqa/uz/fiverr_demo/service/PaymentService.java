@@ -94,7 +94,11 @@ public class PaymentService {
         }
         return list;
     }
-    public List<Payment> findPaymentsBetween(LocalDateTime startTime, LocalDateTime endTime) {
-        return paymentRepository.findPaymentsBetween(startTime, endTime);
+    public List<PaymentResponse> findAllByTimestampBetween(LocalDateTime startTime, LocalDateTime endTime) {
+        List<PaymentResponse> list = new ArrayList<>();
+        for (Payment payment : paymentRepository.findAllByTimestampBetween(startTime, endTime)) {
+            list.add(modelMapper.map(payment, PaymentResponse.class));
+        }
+        return list;
     }
 }
