@@ -50,7 +50,6 @@ public class PaymentService {
         Card card = cardRepository.findByCardNumber(createRequest.getBuyerCard());
 
         Payment payment = modelMapper.map(createRequest, Payment.class);
-
         payment.setGigs(modelMapper.map(byId, Gigs.class));
         payment.setSellerCard(user.getCard());
         payment.setBuyerCard(card);
