@@ -10,6 +10,7 @@ import java.util.UUID;
 public interface CardRepository extends JpaRepository<Card, UUID> {
     boolean existsByOwner(User owner);
 
+
     boolean existsByCardNumber(String buyerCard);
 
     Card findByCardNumber(String buyerCard);
