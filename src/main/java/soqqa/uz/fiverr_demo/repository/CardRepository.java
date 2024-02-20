@@ -9,8 +9,6 @@ import java.util.UUID;
 @Repository
 public interface CardRepository extends JpaRepository<Card, UUID> {
     boolean existsByOwner(User owner);
-
-
     boolean existsByCardNumber(String buyerCard);
 
     Card findByCardNumber(String buyerCard);
