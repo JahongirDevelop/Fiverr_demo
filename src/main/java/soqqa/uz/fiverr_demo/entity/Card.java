@@ -19,4 +19,5 @@ public class Card extends BaseEntity {
     @OneToOne
     private User owner;
 
+
 }
