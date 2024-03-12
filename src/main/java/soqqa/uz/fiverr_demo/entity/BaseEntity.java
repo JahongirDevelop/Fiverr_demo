@@ -31,4 +31,5 @@ public abstract class BaseEntity {
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     protected LocalDateTime createdDate;
 
+
 }
