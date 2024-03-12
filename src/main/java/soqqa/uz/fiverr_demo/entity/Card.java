@@ -7,7 +7,6 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-
 public class Card extends BaseEntity {
 
     private String firstName;
