@@ -9,6 +9,7 @@ import lombok.*;
 @Builder
 
 public class Card extends BaseEntity {
+
     private String firstName;
     private String lastName;
     private String cardNumber;
