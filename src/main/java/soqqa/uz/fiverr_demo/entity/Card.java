@@ -1,7 +1,6 @@
 package soqqa.uz.fiverr_demo.entity;
 import jakarta.persistence.*;
 import lombok.*;
-
 @Entity(name = "card")
 @NoArgsConstructor
 @AllArgsConstructor
