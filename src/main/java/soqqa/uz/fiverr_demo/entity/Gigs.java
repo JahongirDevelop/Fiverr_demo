@@ -11,6 +11,7 @@ import soqqa.uz.fiverr_demo.entity.enums.Category;
 @Setter
 @Builder
 public class Gigs extends BaseEntity {
+
     private String gigTitle;
 
     @Enumerated(EnumType.STRING)
