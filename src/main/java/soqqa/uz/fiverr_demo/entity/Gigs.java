@@ -1,5 +1,4 @@
 package soqqa.uz.fiverr_demo.entity;
-
 import jakarta.persistence.*;
 import lombok.*;
 import soqqa.uz.fiverr_demo.entity.enums.Category;
