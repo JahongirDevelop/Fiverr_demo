@@ -21,7 +21,6 @@ public class AuthenticationService {
 
         SecurityContextHolder.getContext().setAuthentication(authenticationToken);
     }
-
     public List<SimpleGrantedAuthority> getAuthorities(List<String> roles) {
         return roles.stream().map(SimpleGrantedAuthority::new).toList();
     }
