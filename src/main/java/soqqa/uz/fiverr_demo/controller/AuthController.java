@@ -9,7 +9,6 @@ import soqqa.uz.fiverr_demo.config.jwt.AuthDto;
 import soqqa.uz.fiverr_demo.config.jwt.JwtResponse;
 import soqqa.uz.fiverr_demo.dto.request.UserCreateRequest;
 import soqqa.uz.fiverr_demo.service.UserService;
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/v1/auth")
