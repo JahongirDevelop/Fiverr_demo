@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import soqqa.uz.fiverr_demo.entity.Gigs;
 import soqqa.uz.fiverr_demo.entity.User;
 import soqqa.uz.fiverr_demo.entity.enums.Category;
-
 import java.net.ContentHandler;
 import java.util.UUID;
 
