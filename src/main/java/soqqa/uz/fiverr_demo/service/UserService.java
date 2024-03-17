@@ -13,7 +13,6 @@ import soqqa.uz.fiverr_demo.entity.User;
 import soqqa.uz.fiverr_demo.entity.enums.UserRole;
 import soqqa.uz.fiverr_demo.exception.DataNotFoundException;
 import soqqa.uz.fiverr_demo.repository.UserRepository;
-
 import java.security.Principal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -22,7 +21,6 @@ import java.util.Objects;
 import java.util.UUID;
 import java.util.stream.Collectors;
 import static soqqa.uz.fiverr_demo.entity.enums.UserRole.*;
-
 
 @Service
 @RequiredArgsConstructor

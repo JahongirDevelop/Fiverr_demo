@@ -2,7 +2,6 @@ package soqqa.uz.fiverr_demo.service;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import soqqa.uz.fiverr_demo.dto.request.CardCreateRequest;
 import soqqa.uz.fiverr_demo.dto.response.CardResponse;
@@ -12,9 +11,6 @@ import soqqa.uz.fiverr_demo.exception.DataAlreadyExistsException;
 import soqqa.uz.fiverr_demo.exception.DataNotFoundException;
 import soqqa.uz.fiverr_demo.repository.CardRepository;
 import soqqa.uz.fiverr_demo.repository.UserRepository;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
