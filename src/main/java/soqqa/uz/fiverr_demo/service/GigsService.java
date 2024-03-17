@@ -2,22 +2,18 @@ package soqqa.uz.fiverr_demo.service;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeToken;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import soqqa.uz.fiverr_demo.dto.request.GigsCreateRequest;
 import soqqa.uz.fiverr_demo.dto.response.GigsResponse;
-import soqqa.uz.fiverr_demo.entity.Card;
 import soqqa.uz.fiverr_demo.entity.Gigs;
 import soqqa.uz.fiverr_demo.entity.User;
 import soqqa.uz.fiverr_demo.entity.enums.Category;
-import soqqa.uz.fiverr_demo.entity.enums.UserRole;
 import soqqa.uz.fiverr_demo.exception.DataNotFoundException;
 import soqqa.uz.fiverr_demo.repository.GigsRepository;
 import soqqa.uz.fiverr_demo.repository.UserRepository;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;

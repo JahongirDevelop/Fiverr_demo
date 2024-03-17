@@ -14,7 +14,6 @@ import soqqa.uz.fiverr_demo.repository.CardRepository;
 import soqqa.uz.fiverr_demo.repository.GigsRepository;
 import soqqa.uz.fiverr_demo.repository.PaymentRepository;
 import soqqa.uz.fiverr_demo.repository.UserRepository;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
