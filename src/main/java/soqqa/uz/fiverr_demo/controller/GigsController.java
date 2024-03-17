@@ -11,7 +11,6 @@ import soqqa.uz.fiverr_demo.dto.response.GigsResponse;
 import soqqa.uz.fiverr_demo.entity.Gigs;
 import soqqa.uz.fiverr_demo.entity.enums.Category;
 import soqqa.uz.fiverr_demo.service.GigsService;
-
 import java.util.List;
 import java.util.UUID;
 
