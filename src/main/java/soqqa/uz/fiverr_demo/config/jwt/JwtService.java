@@ -1,5 +1,4 @@
 package soqqa.uz.fiverr_demo.config.jwt;
-
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
@@ -9,7 +8,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 import soqqa.uz.fiverr_demo.entity.User;
-
 import java.util.Date;
 import java.util.Map;
 
@@ -46,4 +44,5 @@ public class JwtService {
                         .map(GrantedAuthority::getAuthority)
                         .toList());
     }
+
 }
