@@ -1,6 +1,5 @@
 package soqqa.uz.fiverr_demo.config.jwt;
 
-
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import jakarta.servlet.FilterChain;
@@ -9,7 +8,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.web.filter.OncePerRequestFilter;
-
 import java.io.IOException;
 
 @AllArgsConstructor
