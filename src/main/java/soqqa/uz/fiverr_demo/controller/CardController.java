@@ -27,6 +27,7 @@ public class CardController {
     public ResponseEntity<String> deleteCard(@PathVariable UUID cardId){
         return ResponseEntity.status(200).body(cardService.delete(cardId));
     }
+
 //    @PreAuthorize("hasRole('ADMIN')")
 //    @GetMapping("/get-all")
 //    public List<CardResponse> getAll(){
