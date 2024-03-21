@@ -1,5 +1,4 @@
 package soqqa.uz.fiverr_demo.controller;
-
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
