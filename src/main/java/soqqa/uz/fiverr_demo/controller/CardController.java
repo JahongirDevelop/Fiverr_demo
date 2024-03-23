@@ -33,6 +33,7 @@ public class CardController {
 //        return cardService.getAll();
 //    }
 
+
     // Cardga getAll bo'lmasligi kerak. Chunki userlarni shaxsiy malumoti hisoblanadi bu;
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("get-card/{id}")
