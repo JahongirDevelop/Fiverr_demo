@@ -16,6 +16,7 @@ import java.util.UUID;
 public class CardController {
     private final CardService cardService;
 
+
     @PostMapping("/create-card")
     public ResponseEntity<CardResponse> createCard(@RequestBody @Valid CardCreateRequest createRequest){
         return ResponseEntity.status(HttpStatus.CREATED).body(cardService.create(createRequest));
