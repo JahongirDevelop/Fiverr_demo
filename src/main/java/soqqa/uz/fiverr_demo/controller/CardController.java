@@ -10,7 +10,6 @@ import soqqa.uz.fiverr_demo.dto.response.CardResponse;
 import soqqa.uz.fiverr_demo.entity.Card;
 import soqqa.uz.fiverr_demo.service.CardService;
 import java.util.UUID;
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/v1/card")
